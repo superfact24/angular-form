@@ -1,0 +1,50 @@
+<div class="h-full w-full flex p-3 gap-4">
+
+  <a href="/cursos" class="min-w-[20rem] max-w-[40%]">
+    <div class="w-full flex flex-col border rounded-lg hover:shadow-lg hover:p-2 transition-all">
+      <mat-card class="">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="text-2xl font-medium">Cursos</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <hr class="my-2 h-0.5 border-t-0 bg-neutral-200 opacity-100 dark:opacity-50" />
+          
+          <div class="flex flex-col" *ngFor="let item of cursos">
+            <div class="flex flex-col m-2">
+              <span class="text-xl">{{item.nome}}</span>
+              <p class="text-sm text-gray-600 font-medium mb-1">{{item.descricao.length > 120 ? item.descricao.slice(0, 120)+"..." : item.descricao}}</p>
+              <p class="text-[0.7rem] text-gray-600">Carga Horaria: <strong>{{item.duracao}}H</strong></p>
+            </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </a>
+
+  <a href="/alunos" class="min-w-[20rem] max-w-[40%]">
+    <div class="flex flex-col border rounded-lg hover:shadow-lg hover:p-2 transition-all">
+      <mat-card class="">
+        <mat-card-header>
+          <mat-card-title>
+            <span class="text-2xl font-medium">Alunos</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <hr class="my-2 h-0.5 border-t-0 bg-neutral-200 opacity-100 dark:opacity-50" />
+          
+          <div class="flex flex-col" *ngFor="let item of [1,2,3]">
+            <div class="flex flex-col m-2">
+              <span class="text-lg">Aluno</span>
+              <p class="text-sm text-gray-600 font-medium">Curso</p>
+            </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </a>
+
+</div>
