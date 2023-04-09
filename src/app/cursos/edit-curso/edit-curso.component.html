@@ -1,0 +1,37 @@
+<div class="w-full h-full flex flex-col p-6">
+
+  <span class="text-3xl font-medium mb-1">Editar Curso</span>
+  <mat-divider class="w-60" />
+  
+  <form [formGroup]="cursoForm">
+    <div class="flex flex-col">
+
+      <div class="flex gap-6 mt-4">
+        <mat-form-field class="flex-auto">
+          <label class="text-gray-700 font-bold" for="nome">Nome</label>
+          <input class="" matInput formControlName="nome" id="nome" type="text" placeholder="Nome" required>
+        </mat-form-field>
+
+        <mat-form-field class="flex-auto">
+          <label class="text-gray-700 font-bold" for="duracao">Duração</label>
+          <input class="" matInput formControlName="duracao" id="duracao" type="number" min="1" placeholder="Duração" required>
+        </mat-form-field>
+      </div>
+
+      <div class="flex gap-6 mt-4">
+        <mat-form-field class="flex-auto">
+          <label for="descricao">Descrição</label>
+          <textarea rows="4" class="min-h-[6rem] max-h-24 resize-none rounded-md" matInput formControlName="descricao" name="descricao" required>
+          </textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="flex w-full justify-start gap-2 mt-2">
+        <button *ngIf="cursoForm.valid" mat-raised-button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          type="submit" [disabled]="!cursoForm.valid" (click)="editCurso()">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,36 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CursosService } from '../services/cursos.service';
+import { Cursos } from '../cursos/cursos';
+import { AlunosService } from '../services/alunos.service';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  cursos = [
-    {
-      id: 1,
-      nome: 'Lorem Ipsum',
-      descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-      duracao: 10
-    },
-    {
-      id: 2,
-      nome: 'Lorem Ipsum 2',
-      descricao: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
-      duracao: 20
-    },
-    {
-      id: 3,
-      nome: 'Lorem Ipsum 3',
-      descricao: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut orci nec turpis aliquam iaculis. 
-      Nullam sagittis justo quis purus imperdiet commodo. Donec eget turpis vel sapien laoreet iaculis. 
-      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; 
-      Proin tincidunt, velit id mollis rutrum, magna quam viverra odio, a volutpat urna lorem at nulla. 
-      Vestibulum nec facilisis ante. Aenean vel libero ipsum. Etiam sed semper odio. 
-      Nulla non semper ipsum, id vestibulum orci. Suspendisse a felis eu massa scelerisque posuere.`,
-      duracao: 30
-    },
-  ]
+  cursos: any;
+  alunos: any;
+  params = new HttpParams();
+
+
+  constructor(
+    private _cursosServices: CursosService,
+    private _alunosServices: AlunosService,
+  ) {}
+
+  ngOnInit(): void {
+    this.params = this.params.append('_sort', 'id');
+    this.params = this.params.append('_order', 'desc');
+    this.params = this.params.append('_page', 1);
+    this.params = this.params.append('_limit', 5);
+    this.getCursos();
+    this.getAlunos();
+  }
+
+  getCursos() {
+    this._cursosServices.getCursos(this.params).subscribe(data => {
+      this.cursos = data;
+    })
+  }
+  getAlunos() {
+    this._alunosServices.getAlunos(this.params).subscribe(data => {
+      this.alunos = data;
+    })
+  }
 
 }

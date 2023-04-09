@@ -1,4 +1,4 @@
-<div class="flex flex-col h-full">
+<div class="flex flex-col min-h-screen">
   <div class="flex items-center w-full h-16 bg-[#162343] text-white px-2">
     <mat-toolbar class="flex justify-between">
       <button mat-icon-button class="mr-5" aria-label="Menu" (click)="drawer.toggle()">
@@ -13,43 +13,26 @@
 
   <div class="flex h-full w-full">
 
-    <!-- <mat-sidenav-container class="container">
-      <mat-sidenav #sidenav class="sidenav">
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </mat-sidenav>
-      <mat-sidenav-content>
-        <p>Main content here.</p>
-        <router-outlet></router-outlet>
-        <button mat-button (click)="sidenav.toggle()">Toggle Sidebar</button>
-      </mat-sidenav-content>
-    </mat-sidenav-container> -->
-
-    <mat-drawer-container class="min-h-full w-full" autosize>
-      <mat-drawer #drawer class="min-h-full shadow-sm border border-y-0" mode="side" [opened]="true">
-        <div class="flex flex-col w-44 text-gray-600 font-semibold">
+    <mat-drawer-container class="h-full w-full" autosize>
+      <mat-drawer #drawer class="h-full shadow-sm border border-y-0" mode="side" [opened]="true">
+        <div class="flex flex-col w-44 h-full text-gray-600 font-semibold">
           <a href="/">
             <div class="flex items-center p-4 gap-1 hover:bg-gray-100">
-              <span class="text-lg">Icon</span>
+              <mat-icon>home</mat-icon>
               <span class="text-lg">Home</span>
             </div>
           </a>
 
           <a href="/cursos">
             <div class="flex items-center p-4 gap-1 hover:bg-gray-100">
-              <span class="text-lg">Icon</span>
+              <mat-icon>chrome_reader_mode</mat-icon>
               <span class="text-lg">Cursos</span>
             </div>
           </a>
 
           <a href="/alunos">
             <div class="flex items-center p-4 gap-1 hover:bg-gray-100">
-              <span class="text-lg">Icon</span>
+              <mat-icon>person</mat-icon>
               <span class="text-lg">Alunos</span>
             </div>
           </a>
@@ -60,6 +43,5 @@
 
     </mat-drawer-container>
 
-    <!-- <router-outlet></router-outlet> -->
   </div>
 </div>

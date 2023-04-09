@@ -1,6 +1,6 @@
 <div class="h-full w-full flex p-3 gap-4">
 
-  <a href="/cursos" class="min-w-[20rem] max-w-[40%]">
+  <a routerLink="/cursos" class="min-w-[20rem] max-w-[40%] h-full">
     <div class="w-full flex flex-col border rounded-lg hover:shadow-lg hover:p-2 transition-all">
       <mat-card class="">
         <mat-card-header>
@@ -24,7 +24,7 @@
     </div>
   </a>
 
-  <a href="/alunos" class="min-w-[20rem] max-w-[40%]">
+  <a routerLink="/alunos" class="min-w-[20rem] max-w-[40%] h-full">
     <div class="flex flex-col border rounded-lg hover:shadow-lg hover:p-2 transition-all">
       <mat-card class="">
         <mat-card-header>
@@ -35,10 +35,10 @@
         <mat-card-content>
           <hr class="my-2 h-0.5 border-t-0 bg-neutral-200 opacity-100 dark:opacity-50" />
           
-          <div class="flex flex-col" *ngFor="let item of [1,2,3]">
+          <div class="flex flex-col" *ngFor="let item of alunos">
             <div class="flex flex-col m-2">
-              <span class="text-lg">Aluno</span>
-              <p class="text-sm text-gray-600 font-medium">Curso</p>
+              <span class="text-lg">{{ item.nome }}</span>
+              <p class="text-sm text-gray-600 font-medium">{{ item.curso?.nome }}</p>
             </div>
           </div>
 
