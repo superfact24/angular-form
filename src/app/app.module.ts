@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +23,7 @@ import { CreateCursoComponent } from './cursos/create-curso/create-curso.compone
 import { EditCursoComponent } from './cursos/edit-curso/edit-curso.component';
 import { CreateAlunoComponent } from './alunos/create-aluno/create-aluno.component';
 import { EditAlunoComponent } from './alunos/edit-aluno/edit-aluno.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { EditAlunoComponent } from './alunos/edit-aluno/edit-aluno.component';
     ReactiveFormsModule,
     MatInputModule,
     MatDividerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

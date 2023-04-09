@@ -1,1 +1,38 @@
-<p>create-aluno works!</p>
+<div class="w-full h-full flex flex-col p-6">
+
+  <span class="text-3xl font-medium mb-1">Novo Aluno</span>
+  <mat-divider class="w-60" />
+
+  <form [formGroup]="alunoForm">
+    <div class="flex flex-col">
+
+      <div class="flex gap-6 mt-4">
+        <mat-form-field class="flex-auto">
+          <label class="text-gray-700 font-bold" for="nome">Nome</label>
+          <input class="" matInput formControlName="nome" id="nome" type="text" placeholder="Nome" required>
+        </mat-form-field>
+
+        <div class="flex-auto">
+          <div class="flex flex-col">
+            <label class="text-gray-700 font-bold" for="data_nascimento">Data de Nascimento</label>
+            <input class="shadow appearance-none border border-0 border-b-2 rounded w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline" matInput formControlName="data_nascimento" id="data_nascimento" type="date" placeholder="Data de Nascimento" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-6 mt-4">
+        <mat-form-field class="w-2/4">
+          <label for="cursoId">Curso</label>
+          <input matInput formControlName="cursoId" name="cursoId" type="number" min="1" required />
+        </mat-form-field>
+      </div>
+
+      <div class="flex w-full justify-start gap-2 mt-2">
+        <button *ngIf="alunoForm.valid" mat-raised-button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          type="submit" [disabled]="!alunoForm.valid" (click)="createAluno()">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

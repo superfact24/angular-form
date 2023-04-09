@@ -1,9 +1,9 @@
 <div class="w-full flex flex-col px-6 my-5">
 
   <div class="flex w-full justify-end gap-2">
-    <button mat-raised-button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <a href="/alunos/create" mat-raised-button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
       Adicionar
-    </button>
+    </a>
   </div>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
@@ -34,11 +34,11 @@
     <ng-container matColumnDef="accoes">
       <th mat-header-cell *matHeaderCellDef>Acções</th>
       <td class="flex gap-2" mat-cell *matCellDef="let element">
-        <button mat-icon-button aria-label="delete curso">
+        <button mat-icon-button aria-label="editar aluno" (click)="editAluno(element.id)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button aria-label="deletar curso">
-          <mat-icon class="text-red-600" (click)="deleteAluno(element.id)">delete</mat-icon>
+        <button mat-icon-button aria-label="deletar aluno" (click)="deleteAluno(element.id)">
+          <mat-icon class="text-red-600">delete</mat-icon>
         </button>
       </td>
     </ng-container>
