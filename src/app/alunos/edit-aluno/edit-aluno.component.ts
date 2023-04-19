@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlunosService } from 'src/app/services/alunos.service';
+import { CursosService } from 'src/app/services/cursos.service';
 
 @Component({
   selector: 'app-edit-aluno',
@@ -18,8 +19,10 @@ export class EditAlunoComponent implements OnInit {
 
   id: any;
   aluno: any;
+  cursos: any;
 
   constructor(
+    private _cursosService: CursosService,
     private _alunosService: AlunosService,
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
@@ -28,6 +31,7 @@ export class EditAlunoComponent implements OnInit {
   ngOnInit(): void {
     this.id = this._activatedRoute.snapshot.paramMap.get('id');
     this.getAluno(this.id);
+    this.getCursos();
   }
 
   editAluno() {
@@ -45,6 +49,12 @@ export class EditAlunoComponent implements OnInit {
         data_nascimento: new FormControl(this.aluno?.data_nascimento, [Validators.required]),
         cursoId: new FormControl(this.aluno?.cursoId, [Validators.required]),
       });
+    })
+  }
+
+  getCursos() {
+    this._cursosService.getCursos().subscribe(data => {
+      this.cursos = data;
     })
   }
 }

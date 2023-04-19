@@ -1,4 +1,4 @@
-<div class="flex flex-col min-h-screen">
+<div class="flex flex-col min-h-full h-full h-full w-full">
   <div class="flex items-center w-full h-16 bg-[#162343] text-white px-2">
     <mat-toolbar class="flex justify-between">
       <button mat-icon-button class="mr-5" aria-label="Menu" (click)="drawer.toggle()">
@@ -11,9 +11,9 @@
     </mat-toolbar>
   </div>
 
-  <div class="flex h-full w-full">
+  <div class="flex w-full h-full">
 
-    <mat-drawer-container class="h-full w-full" autosize>
+    <mat-drawer-container class="side-height w-full" autosize>
       <mat-drawer #drawer class="h-full shadow-sm border border-y-0" mode="side" [opened]="true">
         <div class="flex flex-col w-44 h-full text-gray-600 font-semibold">
           <a href="/">
