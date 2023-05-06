@@ -32,13 +32,13 @@ export class EditCursoComponent implements OnInit {
 
   editCurso() {
     let curso: any = this.cursoForm.getRawValue();
-    this._cursosServices.editCursos(curso, this.id).subscribe(data => {
+    this._cursosServices.editarCursos(curso, this.id).subscribe(data => {
       this._router.navigate(['/cursos']);
     })
   }
 
   getCurso(id: Number) {
-    this._cursosServices.getCurso(id).subscribe(data => {
+    this._cursosServices.listarCurso(id).subscribe(data => {
       this.curso = data;
       this.cursoForm = new FormGroup({
         nome: new FormControl(this.curso?.nome, [Validators.required]),

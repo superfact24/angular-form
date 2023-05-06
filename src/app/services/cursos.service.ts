@@ -10,23 +10,23 @@ export class CursosService {
 
   constructor(private http: HttpClient) { }
 
-  getCursos(params = new HttpParams): Observable<Cursos[]> {
+  listarCursos(params = new HttpParams): Observable<Cursos[]> {
     return this.http.get<Cursos[]>('http://localhost:3000/cursos', { params });
   }
 
-  getCurso(id: Number): Observable<Cursos> {
+  listarCurso(id: Number): Observable<Cursos> {
     return this.http.get<Cursos>('http://localhost:3000/cursos/'+id);
   }
 
-  createCursos(curso: Cursos): Observable<Cursos> {
+  criarCursos(curso: Cursos): Observable<Cursos> {
     return this.http.post<Cursos>('http://localhost:3000/cursos', curso);
   }
 
-  editCursos(curso: Cursos, id: Number): Observable<Cursos> {
+  editarCursos(curso: Cursos, id: Number): Observable<Cursos> {
     return this.http.put<Cursos>('http://localhost:3000/cursos/'+id, curso);
   }
 
-  deleteCursos(id: Number): Observable<any> {
+  apagarCursos(id: Number): Observable<any> {
     return this.http.delete<any>('http://localhost:3000/cursos/'+id);
   }
 }

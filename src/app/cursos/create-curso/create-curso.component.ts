@@ -21,9 +21,9 @@ export class CreateCursoComponent {
     private _router: Router,
   ) {}
 
-  createCurso() {
+  criarCurso() {
     let curso: any = this.cursoForm.getRawValue();
-    this._cursosServices.createCursos(curso).subscribe(data => {
+    this._cursosServices.criarCursos(curso).subscribe(data => {
       this._router.navigate(['/cursos']);
     })
   }

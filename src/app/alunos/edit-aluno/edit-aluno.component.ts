@@ -53,7 +53,7 @@ export class EditAlunoComponent implements OnInit {
   }
 
   getCursos() {
-    this._cursosService.getCursos().subscribe(data => {
+    this._cursosService.listarCursos().subscribe(data => {
       this.cursos = data;
     })
   }

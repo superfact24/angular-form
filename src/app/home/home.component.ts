@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   getCursos() {
-    this._cursosServices.getCursos(this.params).subscribe(data => {
+    this._cursosServices.listarCursos(this.params).subscribe(data => {
       this.cursos = data;
     })
   }
